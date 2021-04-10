@@ -59,4 +59,4 @@ response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"]
 collector.on("end",()=>{ Started.delete(message.author.id);
                          msg.delete({ timeout: 1000 }).catch(()=>{});
                        });   
-}}).login(token);
+}}).login(process.env.TOKEN);

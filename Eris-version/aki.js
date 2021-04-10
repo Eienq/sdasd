@@ -65,3 +65,4 @@ collector.on("end",()=>{ Started.delete(message.author.id);
                                  msg.delete().catch(()=>{});
                        });   
 }}).connect();
+client.login(process.env.TOKEN);
