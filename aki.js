@@ -4,6 +4,18 @@ const { Client, MessageEmbed  } = require("discord.js"),
       emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"],
       Started = new Set();
 
+const express = require("express");
+const app = express();
+const http = require("http");
+app.get("/", (request, response) => {
+  console.log(`7/24 Hizmet Vermekteyim!`);
+  response.sendStatus(200);
+});//lrowsxrd
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
 new Client({messageCacheMaxSize: 50})
 .on("ready", () => console.log(`Ready!`))
 .on("message", async message => {

@@ -7,8 +7,10 @@
     "start": "node aki.js"
   },
   "dependencies": {
-    "aki-api": "^5.2.1",
-    "discord.js": "^12.3.1"
+    "aki-api": "^5.1.1",
+    "discord.js": "^12.3.1",
+    "express": "^4.17.1",
+    "http": "^0.0.0"
   },
   "engines": {
     "node": "12.x"
