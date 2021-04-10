@@ -60,3 +60,5 @@ collector.on("end",()=>{ Started.delete(message.author.id);
                          msg.delete({ timeout: 1000 }).catch(()=>{});
                        });   
 }}).login(process.env.TOKEN);
+
+
