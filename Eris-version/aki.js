@@ -16,7 +16,7 @@ if (message.author.bot || !message.channel.guild) return;
 if (message.content.startsWith(prefix + "start")) {
 if(!Started.has(message.author.id))Started.add(message.author.id);
 else return message.channel.createMessage("**:x: | The game already started..**");
-      const aki = new Aki("ar"); // Full languages list at: https://github.com/jgoralcz/aki-api
+      const aki = new Aki("Tr"); // Full languages list at: https://github.com/jgoralcz/aki-api
       await aki.start();
 const msg = await message.channel.createMessage({embed: {
   title: `${message.author.username}, Question ${aki.currentStep + 1}`,
