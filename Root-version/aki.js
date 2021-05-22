@@ -1,4 +1,3 @@
-
 const {     prefix, token     } = require("./config"),
       Root = require("eris"),
       client = new Root(token),
