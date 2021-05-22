@@ -1,7 +1,7 @@
 
 const {     prefix, token     } = require("./config"),
-      Eris = require("eris"),
-      client = new Eris(token),
+      Root = require("eris"),
+      client = new Root(token),
       {          Aki          } = require("aki-api"),
       emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"],
       Started = new Set(),
@@ -10,7 +10,7 @@ const {     prefix, token     } = require("./config"),
 client
   .on("ready", async() =>{
   console.log(`Ready!`);
-  await require("./helpers/Collectors/awaitMessages.js")(Eris);
+  await require("./helpers/Collectors/awaitMessages.js")(Root);
   }).on("messageCreate", async message => {
 if (message.author.bot || !message.channel.guild) return;
 if (message.content.startsWith(prefix + "başlat")) {
@@ -19,7 +19,7 @@ else return message.channel.createMessage("**:x: | Oyun çoktan başladı..**");
       const aki = new Aki("Tr"); // Full languages list at: https://github.com/jgoralcz/aki-api
       await aki.start();
 const msg = await message.channel.createMessage({embed: {
-  title: `${message.author.username}, Question ${aki.currentStep + 1}`,
+  title: `${message.author.username}, Soru ${aki.currentStep + 1}`,
   color: 0x206694,
   description: `**${aki.question}**\n${aki.answers.map((x, i) => `${x} | ${emojis[i]}`).join("\n")}`}});
 
@@ -56,7 +56,7 @@ if(responses.length){
           return;
         }
          msg.edit({embed: {
-                       title: `${message.author.username}, Question ${aki.currentStep + 1}`,
+                       title: `${message.author.username}, Soru ${aki.currentStep + 1}`,
                        description: `**${aki.question}**\n${aki.answers.map((x, i) => `${x} | ${emojis[i]}`).join("\n")}`,
                        color: 0x206694
          }}); 
