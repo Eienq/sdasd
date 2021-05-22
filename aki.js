@@ -10,7 +10,7 @@ const http = require("http");
 app.get("/", (request, response) => {
   console.log(`7/24 Hizmet Vermekteyim!`);
   response.sendStatus(200);
-});//lrowsxrd
+});//rootuser
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
@@ -20,7 +20,7 @@ new Client({messageCacheMaxSize: 50})
 .on("ready", () => console.log(`Ready!`))
 .on("message", async message => {
 if (message.author.bot || !message.guild) return;
-if (message.content.startsWith(prefix + "akin")) {
+if (message.content.startsWith(prefix + "başlat")) {
 if(!Started.has(message.author.id))Started.add(message.author.id);
 else return message.channel.send("**:x: | Oyun Zaten Başladı..**");
       const aki = new Aki("tr"); // dili burdan ayarla
@@ -44,11 +44,11 @@ if (aki.progress >= 70 || aki.currentStep >= 78) {
               .setDescription(`**${aki.answers[0].name}**\n${aki.answers[0].description}\nRanking as **#${aki.answers[0].ranking}**\n\n[yes (**y**) / no (**n**)]`)
               .setImage(aki.answers[0].absolute_picture_path)
               .setColor("RANDOM"));
-message.channel.awaitMessages(response => ["evetse","y","hayırsa","n"].includes(response.content.trim().toLowerCase()) &&
+message.channel.awaitMessages(response => ["evet","y","hayır","n"].includes(response.content.trim().toLowerCase()) &&
 response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"] })
         .then(collected => {
            const content = collected.first().content.trim().toLowerCase();
-              if (content == "y" || content == "yes")
+              if (content == "e" || content == "evet")
                    return message.channel.send(new MessageEmbed()
                     .setColor("RANDOM")
                     .setTitle("Harika! Bir kez daha doğru tahmin ettim.")

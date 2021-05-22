@@ -13,9 +13,9 @@ client
   await require("./helpers/Collectors/awaitMessages.js")(Eris);
   }).on("messageCreate", async message => {
 if (message.author.bot || !message.channel.guild) return;
-if (message.content.startsWith(prefix + "start")) {
+if (message.content.startsWith(prefix + "başlat")) {
 if(!Started.has(message.author.id))Started.add(message.author.id);
-else return message.channel.createMessage("**:x: | The game already started..**");
+else return message.channel.createMessage("**:x: | Oyun çoktan başladı..**");
       const aki = new Aki("Tr"); // Full languages list at: https://github.com/jgoralcz/aki-api
       await aki.start();
 const msg = await message.channel.createMessage({embed: {
@@ -39,19 +39,19 @@ if (aki.progress >= 70 || aki.currentStep >= 78) {
             title: "Is this your character?", 
             color: 0x206694,
             image: {url: aki.answers[0].absolute_picture_path},
-            description: `**${aki.answers[0].name}**\n${aki.answers[0].description}\nRanking as **#${aki.answers[0].ranking}**\n\n[yes (**y**) / no (**n**)]`}});
-const responses = await message.channel.awaitMessages(m => ["yes","y","no","n"].includes(m.content.trim().toLowerCase()) && m.author.id == message.author.id, { time: 30000, maxMatches: 1 });
+            description: `**${aki.answers[0].name}**\n${aki.answers[0].description}\nRanking as **#${aki.answers[0].ranking}**\n\n[evet (**e**) / hayır (**h**)]`}});
+const responses = await message.channel.awaitMessages(m => ["evet","e","hayır","h"].includes(m.content.trim().toLowerCase()) && m.author.id == message.author.id, { time: 30000, maxMatches: 1 });
 if(responses.length){
   const content = responses[0].content.trim().toLowerCase();
-              if (content == "y" || content == "yes")
+              if (content == "e" || content == "evet")
                    return message.channel.createMessage({embed: {  
-                    title: "Great! Guessed right one more time.",
+                    title: "Harika! Bir kez daha doğru tahmin ettim.",
                     color: 0x206694,
-                    description: "I love playing with you!" }});  
+                    description: "Seninle Oynamayı çok seviyorum!" }});  
               else return message.channel.createMessage({embed: {  
-                    title: "Uh. you are win",
+                    title: "uh oh sen kazandın!",
                     color: 0x206694,
-                    description: "I love playing with you!" }});
+                    description: "Seninle Oynamayı çok seviyorum!" }});
          }
           return;
         }
